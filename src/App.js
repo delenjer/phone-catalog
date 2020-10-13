@@ -1,14 +1,29 @@
 import React from 'react';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="/images/factory.png" className="App-logo" alt="logo" />
-      </header>
-    </div>
-  );
-}
+import { Header } from './components/Header/Header';
+import { Home } from './components/Home/Home';
+import { Phones } from './components/Phones/Phones';
+
+import './App.scss';
+
+const App = () => (
+  <>
+    <Header />
+
+    <Switch>
+      <Route
+        path="/"
+        exact
+        component={Home}
+      />
+
+      <Route
+        path="/phones"
+        component={Phones}
+      />
+    </Switch>
+  </>
+);
 
 export default App;

@@ -1,0 +1,8 @@
+@import "src/styles/mixins";
+
+.header {
+  @include flex-space-between;
+  align-items: center;
+  padding-left: 1.5rem;
+  box-shadow: 0 1px 0 #e2e6e9;
+}
