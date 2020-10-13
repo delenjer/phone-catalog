@@ -4,6 +4,8 @@ import { Banner } from '../Banner/Banner';
 
 export const Home = () => (
   <div className="wrapper">
-    <Banner />
+    <div className="banner-container">
+      <Banner />
+    </div>
   </div>
 );

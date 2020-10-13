@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import '../../styles/slick.scss';
 
+import './banner.scss';
+
 export const Banner = () => {
   const [settings, setSettings] = useState({});
 
@@ -17,15 +19,24 @@ export const Banner = () => {
   }, []);
 
   return (
-    <Slider {...settings}>
-      <div>
-        <h3>1</h3>
+    <Slider
+      {...settings}
+      className="banner"
+    >
+      <div className="banner__item">
+        <img
+          src="/images/banner/banner.png"
+          alt="banner"
+          className="banner__img"
+        />
       </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
+
+      <div className="banner__item">
+        <img
+          src="/images/banner/banner-2.png"
+          alt="banner"
+          className="banner__img"
+        />
       </div>
     </Slider>
   );
