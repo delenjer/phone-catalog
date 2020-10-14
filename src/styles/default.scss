@@ -1,8 +1,9 @@
 html,
 body {
-  font-family: "Mont-SemiBold", sans-serif;
+  font-family: "Mont-Regular", sans-serif;
   font-size: 16px;
   line-height: 1.4;
+  color: #313237;
 }
 
 a {
@@ -27,4 +28,28 @@ a {
   width: 100%;
   max-width: 1136px;
   margin: 0 auto;
+}
+
+.slider-offer {
+  &__item {
+    display: flex !important;
+    justify-content: center;
+    min-height: 505px;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    top: -60px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .slick-prev {
+    left: auto;
+    right: 48px;
+  }
+
+  .slick-next {
+    right: 0;
+  }
 }

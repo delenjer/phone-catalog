@@ -9,3 +9,15 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Mont-Regular";
+  src: url("../fonts/Mont/Mont-Regular.eot");
+  src: local("../fonts/Mont/Mont Regular"),
+    local("Mont-Regular"),
+    url("../fonts/Mont/Mont-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Mont/Mont-Regular.woff") format("woff"),
+    url("../fonts/Mont/Mont-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
