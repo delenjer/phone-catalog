@@ -4,6 +4,7 @@ body {
   font-size: 16px;
   line-height: 1.4;
   color: #313237;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -51,5 +52,37 @@ a {
 
   .slick-next {
     right: 0;
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #89939a;
+  transition: opacity 0.3s;
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #b4bdc4;
+    box-sizing: border-box;
+    margin-left: 1rem;
+
+    &--img {
+      transition: transform 0.3s;
+    }
+  }
+
+  &:hover {
+    opacity: 0.7;
+
+    .top__arrow--img {
+      transform: translate(0, -3px);
+    }
   }
 }

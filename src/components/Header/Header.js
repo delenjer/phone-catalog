@@ -6,7 +6,7 @@ import { Service } from '../Service/Service';
 import './header.scss';
 
 export const Header = () => (
-  <header className="header">
+  <header id="header" className="header">
     <Nav />
 
     <Service />
