@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export const CardPhone = ({ phone, addLike, likePhoneId }) => (
-  <article className="card">
+  <Link
+    to={`/phones/${phone.id}`}
+    className="card"
+  >
     <div className="card__img-box">
       <img
         src={phone.imageUrl}
@@ -82,7 +86,7 @@ export const CardPhone = ({ phone, addLike, likePhoneId }) => (
         />
       </button>
     </div>
-  </article>
+  </Link>
 );
 
 CardPhone.propTypes = {

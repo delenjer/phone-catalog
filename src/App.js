@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { PhonesCatalog } from './components/PhonesCatalog/PhonesCatalog';
 import { Favorite } from './components/Favorite/Favorite';
+import { PhoneDetails } from './components/PhoneDetails/PhoneDetails';
 import { Footer } from './components/Footer/Footer';
 
 import './App.scss';
@@ -61,6 +62,12 @@ const App = () => {
             addLike={addLike}
           />
         </Route>
+
+        <Route
+          path="/phones/:phonesId"
+          exact
+          component={PhoneDetails}
+        />
       </Switch>
 
       <Footer />

@@ -1,9 +1,16 @@
 .card {
+  display: block;
   width: 272px;
+  color: #313237;
   background-color: #fff;
   border: 1px solid #e2e6e9;
   padding: 1.5rem;
   box-sizing: border-box;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
 
   &__img-box {
     width: 100%;
