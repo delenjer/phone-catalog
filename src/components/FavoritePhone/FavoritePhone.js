@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import { CardPhone } from '../CardPhone/CardPhone';
 
-export const Phones = ({ phones, addLike, likePhoneId }) => (
+export const FavoritePhone = ({ likePhoneId, phones, addLike }) => (
   <section className="catalog">
     {
-      phones.map(phone => (
+      phones.filter(item => likePhoneId.includes(item.id)).map(phone => (
         <CardPhone
           key={phone.id}
           phone={phone}
@@ -18,15 +18,15 @@ export const Phones = ({ phones, addLike, likePhoneId }) => (
   </section>
 );
 
-Phones.propTypes = {
+FavoritePhone.propTypes = {
   phone: PropTypes.shape({
-    id: PropTypes.string,
+    phone: PropTypes.string,
   }),
   phones: PropTypes.arrayOf(PropTypes.object).isRequired,
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
   addLike: PropTypes.func.isRequired,
 };
 
-Phones.defaultProps = {
+FavoritePhone.defaultProps = {
   phone: undefined,
 };

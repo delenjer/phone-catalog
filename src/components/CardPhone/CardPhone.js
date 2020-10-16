@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Card = ({ phone }) => (
+export const CardPhone = ({ phone, addLike, likePhoneId }) => (
   <article className="card">
     <div className="card__img-box">
       <img
@@ -68,18 +68,24 @@ export const Card = ({ phone }) => (
       <button
         type="button"
         className="card__btn card__btn--like"
+        onClick={(e) => {
+          addLike(e, phone.id);
+        }}
       >
-        <img
-          src="/img/icons/favorite.svg"
-          alt="icon"
-          className="card__btn-icon"
+
+        <span
+          className={
+            likePhoneId.includes(phone.id)
+              ? 'icon-favorite card__btn-icon like-color'
+              : 'icon-favorite card__btn-icon'
+          }
         />
       </button>
     </div>
   </article>
 );
 
-Card.propTypes = {
+CardPhone.propTypes = {
   phone: PropTypes.shape({
     imageUrl: PropTypes.string,
     ram: PropTypes.string,
@@ -87,5 +93,8 @@ Card.propTypes = {
     screen: PropTypes.string,
     price: PropTypes.number,
     name: PropTypes.string,
+    id: PropTypes.string,
   }).isRequired,
+  likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addLike: PropTypes.func.isRequired,
 };

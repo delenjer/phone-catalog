@@ -1,0 +1,20 @@
+.form {
+  width: 100%;
+  max-width: 272px;
+
+  &__label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #89939a;
+    margin-bottom: 0.25rem;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    border: 1px solid #b4bdc4;
+    padding: 0.62rem 0.7rem;
+    box-sizing: border-box;
+  }
+}

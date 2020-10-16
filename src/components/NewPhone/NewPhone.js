@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import '../../styles/slick.scss';
 import { SampleNextArrow, SamplePrevArrow } from '../SliderArrow/SliderArrow';
 
-import { Card } from '../Card/Card';
+import { CardHome } from '../CardHome/CardHome';
 
 import './new-phones.scss';
 
@@ -36,7 +36,7 @@ export const NewPhone = ({ newPhones }) => {
           {
             newPhones.map(phone => (
               <div key={phone.id} className="slider-offer__item">
-                <Card phone={phone} />
+                <CardHome phone={phone} />
               </div>
             ))
           }

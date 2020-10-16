@@ -6,3 +6,9 @@ export function getPhone() {
     .then(response => response.json())
     .then(data => data);
 }
+
+// export function getLikePhone(likeId) {
+//   return fetch(BASE_URL)
+//     .then(response => response.json())
+//     .then(data => data.find(item => item.id === likeId));
+// }
