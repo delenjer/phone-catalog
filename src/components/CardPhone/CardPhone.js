@@ -2,10 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const CardPhone = ({ phone, addLike, likePhoneId, addCart }) => (
+export const CardPhone = (
+  {
+    phone,
+    addLike,
+    likePhoneId,
+    addCart,
+    handlePush,
+  },
+) => (
   <Link
     to={`/phones/${phone.id}`}
     className="card"
+    onClick={e => handlePush(e, phone.id)}
   >
     <div className="card__img-box">
       <img
@@ -105,4 +114,5 @@ CardPhone.propTypes = {
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
   addLike: PropTypes.func.isRequired,
   addCart: PropTypes.func.isRequired,
+  handlePush: PropTypes.func.isRequired,
 };

@@ -5,7 +5,15 @@ import { Phones } from '../Phones/Phones';
 import { Form } from '../Form/Form';
 import { Select } from '../Select/Select';
 
-export const PhonesCatalog = ({ phones, addLike, likePhoneId, addCart }) => {
+export const PhonesCatalog = (
+  {
+    phones,
+    addLike,
+    likePhoneId,
+    addCart,
+    handlePush,
+  },
+) => {
   const [query, setQuery] = useState('');
   const [sorted, setSorted] = useState('all');
 
@@ -53,6 +61,7 @@ export const PhonesCatalog = ({ phones, addLike, likePhoneId, addCart }) => {
               addLike={addLike}
               likePhoneId={likePhoneId}
               addCart={addCart}
+              handlePush={handlePush}
             />
           ) : (
             <div className="message">
@@ -70,4 +79,5 @@ PhonesCatalog.propTypes = {
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
   addLike: PropTypes.func.isRequired,
   addCart: PropTypes.func.isRequired,
+  handlePush: PropTypes.func.isRequired,
 };

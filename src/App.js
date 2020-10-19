@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 
 import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { PhonesCatalog } from './components/PhonesCatalog/PhonesCatalog';
 import { Favorite } from './components/Favorite/Favorite';
 import { Cart } from './components/Cart/Cart';
+import { PhoneDetails } from './components/PhoneDetails/PhoneDetails';
 import { Footer } from './components/Footer/Footer';
 
 import './App.scss';
@@ -16,6 +17,7 @@ const App = () => {
   const [phones, setPhones] = useState([]);
   const [likePhoneId, setLikePhoneId] = useState([]);
   const [cart, setCart] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const phoneFromServer = async() => {
@@ -57,6 +59,12 @@ const App = () => {
     setCart([...cart].filter(item => item.id !== id));
   };
 
+  const handlePush = (e, phoneId) => {
+    e.preventDefault();
+
+    return history.push(`/details/${phoneId}`);
+  };
+
   return (
     <div className="main">
       <Header
@@ -79,6 +87,7 @@ const App = () => {
             addLike={addLike}
             likePhoneId={likePhoneId}
             addCart={addCart}
+            handlePush={handlePush}
           />
         </Route>
 
@@ -90,6 +99,12 @@ const App = () => {
             phones={phones}
             addLike={addLike}
           />
+        </Route>
+
+        <Route
+          path="/details/:phoneId"
+        >
+          <PhoneDetails />
         </Route>
 
         <Route
