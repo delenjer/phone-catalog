@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import './service.scss';
 
-export const Service = ({ likePhoneId }) => (
+export const Service = ({ likePhoneId, cart }) => (
   <div className="service">
     <NavLink
       to="/favorite"
@@ -20,10 +20,17 @@ export const Service = ({ likePhoneId }) => (
     <NavLink
       to="/cart"
       className="service__link service__link--cart"
-    />
+    >
+      {cart.length > 0 ? (
+        <p className="service__link-count">{cart.length}</p>
+      ) : (
+        <p>{null}</p>
+      )}
+    </NavLink>
   </div>
 );
 
 Service.propTypes = {
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

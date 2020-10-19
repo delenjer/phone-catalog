@@ -5,7 +5,7 @@ import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { PhonesCatalog } from './components/PhonesCatalog/PhonesCatalog';
 import { Favorite } from './components/Favorite/Favorite';
-import { PhoneDetails } from './components/PhoneDetails/PhoneDetails';
+import { Cart } from './components/Cart/Cart';
 import { Footer } from './components/Footer/Footer';
 
 import './App.scss';
@@ -15,6 +15,7 @@ import { addLikePhone } from './helpers/helpers';
 const App = () => {
   const [phones, setPhones] = useState([]);
   const [likePhoneId, setLikePhoneId] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const phoneFromServer = async() => {
@@ -32,9 +33,36 @@ const App = () => {
     addLikePhone(id, likePhoneId, setLikePhoneId);
   };
 
+  const addCart = (e, id) => {
+    e.preventDefault();
+
+    const price = phones.filter(phone => phone.id === id)
+      .map(phone => phone.price).join('');
+
+    const images = phones.filter(phone => phone.id === id)
+      .map(phone => phone.imageUrl).join('');
+
+    setCart([
+      ...cart,
+      {
+        id: +new Date(),
+        phone: id,
+        price: +price,
+        imageUrl: images,
+      },
+    ]);
+  };
+
+  const handleClick = (id) => {
+    setCart([...cart].filter(item => item.id !== id));
+  };
+
   return (
-    <>
-      <Header likePhoneId={likePhoneId} />
+    <div className="main">
+      <Header
+        likePhoneId={likePhoneId}
+        cart={cart}
+      />
 
       <Switch>
         <Route
@@ -50,6 +78,7 @@ const App = () => {
             phones={phones}
             addLike={addLike}
             likePhoneId={likePhoneId}
+            addCart={addCart}
           />
         </Route>
 
@@ -64,14 +93,17 @@ const App = () => {
         </Route>
 
         <Route
-          path="/phones/:phonesId"
-          exact
-          component={PhoneDetails}
-        />
+          path="/cart"
+        >
+          <Cart
+            cart={cart}
+            handleClick={handleClick}
+          />
+        </Route>
       </Switch>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -1,10 +1,15 @@
 html,
 body {
+  height: 100%;
   font-family: "Mont-Regular", sans-serif;
   font-size: 16px;
   line-height: 1.4;
   color: #313237;
   scroll-behavior: smooth;
+}
+
+#root {
+  height: 100%;
 }
 
 a {
@@ -17,6 +22,13 @@ a {
   }
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
 .logo {
   &__link {
     font-size: 1.4rem;
@@ -27,6 +39,8 @@ a {
 
 .wrapper {
   width: 100%;
+  flex: 1 auto;
+  flex-shrink: 0;
   max-width: 1156px;
   margin: 0 auto;
   padding: 0 10px;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { CardPhone } from '../CardPhone/CardPhone';
 
-export const Phones = ({ phones, addLike, likePhoneId }) => (
+export const Phones = ({ phones, addLike, likePhoneId, addCart }) => (
   <section className="catalog">
     {
       phones.map(phone => (
@@ -12,6 +12,7 @@ export const Phones = ({ phones, addLike, likePhoneId }) => (
           phone={phone}
           addLike={addLike}
           likePhoneId={likePhoneId}
+          addCart={addCart}
         />
       ))
     }
@@ -25,6 +26,7 @@ Phones.propTypes = {
   phones: PropTypes.arrayOf(PropTypes.object).isRequired,
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
   addLike: PropTypes.func.isRequired,
+  addCart: PropTypes.func.isRequired,
 };
 
 Phones.defaultProps = {

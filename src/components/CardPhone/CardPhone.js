@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const CardPhone = ({ phone, addLike, likePhoneId }) => (
+export const CardPhone = ({ phone, addLike, likePhoneId, addCart }) => (
   <Link
     to={`/phones/${phone.id}`}
     className="card"
@@ -65,6 +65,9 @@ export const CardPhone = ({ phone, addLike, likePhoneId }) => (
       <button
         type="button"
         className="card__btn card__btn--add"
+        onClick={(e) => {
+          addCart(e, phone.id);
+        }}
       >
         Add to cart
       </button>
@@ -101,4 +104,5 @@ CardPhone.propTypes = {
   }).isRequired,
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
   addLike: PropTypes.func.isRequired,
+  addCart: PropTypes.func.isRequired,
 };

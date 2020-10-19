@@ -1,0 +1,91 @@
+.cart {
+  margin-top: 2.5rem;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__title {
+    font-family: "Mont-SemiBold", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+  }
+
+  &__list {
+    width: 100%;
+    max-width: 752px;
+    margin-top: 24px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e2e6e9;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__btn {
+    width: 16px;
+    height: 16px;
+    background: url("/img/icons/close.svg") no-repeat, center;
+    background-size: contain;
+    border: none;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translate(0, -3px);
+    }
+  }
+
+  &__img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  &__text {
+    width: 100%;
+    max-width: 18.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  &__price {
+    font-family: "Mont-SemiBold", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+  }
+
+  &__total {
+    width: 368px;
+    margin-top: 24px;
+    border: 1px solid #e2e6e9;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  &__total-text {
+    font-family: "Mont-SemiBold", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+
+    &--description {
+      display: block;
+      margin-top: 0.1rem;
+      font-size: 14px;
+      font-weight: 500;
+      color: #89939a;
+    }
+  }
+}
