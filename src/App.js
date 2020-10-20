@@ -17,6 +17,7 @@ const App = () => {
   const [phones, setPhones] = useState([]);
   const [likePhoneId, setLikePhoneId] = useState([]);
   const [cart, setCart] = useState([]);
+  const [isLoaded, setLoaded] = useState(true);
   const history = useHistory();
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const App = () => {
       const data = await getPhone();
 
       setPhones(data);
+      setTimeout(() => setLoaded(false), 1000);
     };
 
     phoneFromServer().then();
@@ -62,63 +64,75 @@ const App = () => {
   const handlePush = (e, phoneId) => {
     e.preventDefault();
 
-    return history.push(`/details/${phoneId}`);
+    history.push(`/details/${phoneId}`);
   };
 
   return (
-    <div className="main">
-      <Header
-        likePhoneId={likePhoneId}
-        cart={cart}
-      />
+    <>
+      {
+        isLoaded ? (
+          <div className="loader-container">
+            <div className="loader">Loading...</div>
+          </div>
+        ) : (
+          <div className="main">
+            <Header
+              likePhoneId={likePhoneId}
+              cart={cart}
+            />
 
-      <Switch>
-        <Route
-          path="/"
-          exact
-          component={Home}
-        />
+            <Switch>
+              <Route
+                path="/"
+                exact
+                component={Home}
+              />
 
-        <Route
-          path="/phones"
-        >
-          <PhonesCatalog
-            phones={phones}
-            addLike={addLike}
-            likePhoneId={likePhoneId}
-            addCart={addCart}
-            handlePush={handlePush}
-          />
-        </Route>
+              <Route
+                path="/phones"
+              >
+                <PhonesCatalog
+                  phones={phones}
+                  addLike={addLike}
+                  likePhoneId={likePhoneId}
+                  addCart={addCart}
+                  handlePush={handlePush}
+                />
+              </Route>
 
-        <Route
-          path="/favorite"
-        >
-          <Favorite
-            likePhoneId={likePhoneId}
-            phones={phones}
-            addLike={addLike}
-          />
-        </Route>
+              <Route
+                path="/favorite"
+              >
+                <Favorite
+                  likePhoneId={likePhoneId}
+                  phones={phones}
+                  addLike={addLike}
+                  addCart={addCart}
+                  handlePush={handlePush}
+                />
+              </Route>
 
-        <Route
-          path="/details/:phoneId"
-        >
-          <PhoneDetails />
-        </Route>
+              <Route
+                path="/details/:phoneId"
+              >
+                <PhoneDetails />
+              </Route>
 
-        <Route
-          path="/cart"
-        >
-          <Cart
-            cart={cart}
-            handleClick={handleClick}
-          />
-        </Route>
-      </Switch>
+              <Route
+                path="/cart"
+              >
+                <Cart
+                  cart={cart}
+                  handleClick={handleClick}
+                />
+              </Route>
+            </Switch>
 
-      <Footer />
-    </div>
+            <Footer />
+          </div>
+        )
+      }
+    </>
   );
 };
 

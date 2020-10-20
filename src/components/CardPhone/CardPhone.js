@@ -14,7 +14,6 @@ export const CardPhone = (
   <Link
     to={`/phones/${phone.id}`}
     className="card"
-    onClick={e => handlePush(e, phone.id)}
   >
     <div className="card__img-box">
       <img
@@ -98,6 +97,14 @@ export const CardPhone = (
         />
       </button>
     </div>
+
+    <button
+      type="button"
+      onClick={e => handlePush(e, phone.id)}
+      className="card__btn--details"
+    >
+      Details
+    </button>
   </Link>
 );
 
