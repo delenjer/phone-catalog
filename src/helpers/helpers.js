@@ -7,3 +7,11 @@ export const addLikePhone = (id, likePhoneId, setLikePhoneId) => {
     setLikePhoneId([...likePhoneId.filter(item => item !== id)]);
   }
 };
+
+export function getWindowSize() {
+  const { innerWidth: width } = window;
+
+  return {
+    width,
+  };
+}

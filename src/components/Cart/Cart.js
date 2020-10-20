@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BackPath } from '../BackPath/BackPath';
 
 export const Cart = ({ cart, handleClick }) => {
   const Total = () => cart.map(item => item.price).reduce((a, b) => a + b, 0);
 
   return (
     <div className="wrapper">
+      <BackPath />
+
       <section className="cart">
         <h1 className="cart__title">Cart</h1>
 

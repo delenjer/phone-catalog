@@ -6,13 +6,14 @@ import { Service } from '../Service/Service';
 
 import './header.scss';
 
-export const Header = ({ likePhoneId, cart }) => (
+export const Header = ({ likePhoneId, cart, pathname }) => (
   <header id="header" className="header">
-    <Nav />
+    <Nav pathname={pathname} />
 
     <Service
       likePhoneId={likePhoneId}
       cart={cart}
+      pathname={pathname}
     />
   </header>
 );
@@ -20,4 +21,5 @@ export const Header = ({ likePhoneId, cart }) => (
 Header.propTypes = {
   likePhoneId: PropTypes.arrayOf(PropTypes.string).isRequired,
   cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pathname: PropTypes.string.isRequired,
 };
