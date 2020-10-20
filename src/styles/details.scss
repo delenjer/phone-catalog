@@ -1,0 +1,43 @@
+.details {
+  margin-top: 1.5rem;
+
+  &__title {
+    font-family: "Mont-SemiBold", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+
+    &--tech {
+      font-size: 1.5rem;
+    }
+
+    &--specs-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #89939a;
+      padding-right: 0.7rem;
+    }
+  }
+
+  &__specs-list {
+    width: 100%;
+    max-width: 32rem;
+    border-top: 1px solid #e2e6e9;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  &__specs-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__specs-text {
+    width: 25rem;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

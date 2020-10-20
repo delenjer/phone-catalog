@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { GetDetailsURL } from '../../api/api';
+import { Details } from '../Details/Details';
 
 export const PhoneDetails = () => {
   const [details, setDetails] = useState([]);
@@ -19,23 +20,13 @@ export const PhoneDetails = () => {
         <h1 className="details__title">{phoneId}</h1>
 
         <article className="details__specs">
-          <h2 className="details__title">Tech specs</h2>
+          <h2 className="details__title details__title--tech">Tech specs</h2>
 
-          <ul className="details__specs-list">
-            {
-              details.map(detail => (
-                <li className="details__specs-item">
-                  <h3 className="details__specs-title">
-                    Screen
-                  </h3>
-
-                  <p className="details__specs-text">
-                    {detail.display.screenResolution}
-                  </p>
-                </li>
-              ))
-            }
-          </ul>
+          {
+            details.map(detail => (
+              <Details key={detail.id} detail={detail} />
+            ))
+          }
         </article>
       </section>
     </div>
