@@ -29,7 +29,7 @@ export const Footer = () => (
 
       <span className="top__arrow">
         <img
-          src="/img/icons/arrow_top.svg"
+          src="./img/icons/arrow_top.svg"
           alt="Arrow top"
           className="top__arrow--img"
         />

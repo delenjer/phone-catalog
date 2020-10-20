@@ -56,26 +56,6 @@ export const CardHome = ({ phone }) => (
         </p>
       </li>
     </ul>
-
-    {/* <div className="card__btn-box"> */}
-    {/*  <button */}
-    {/*    type="button" */}
-    {/*    className="card__btn card__btn--add" */}
-    {/*  > */}
-    {/*    Add to cart */}
-    {/*  </button> */}
-
-    {/*  <button */}
-    {/*    type="button" */}
-    {/*    className="card__btn card__btn--like" */}
-    {/*  > */}
-    {/*    <img */}
-    {/*      src="/img/icons/favorite.svg" */}
-    {/*      alt="icon" */}
-    {/*      className="card__btn-icon" */}
-    {/*    /> */}
-    {/*  </button> */}
-    {/* </div> */}
   </article>
 );
 

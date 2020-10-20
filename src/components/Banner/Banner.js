@@ -28,7 +28,7 @@ export const Banner = () => {
     >
       <div className="banner__item">
         <img
-          src="/img/banner/banner.png"
+          src="./img/banner/banner.png"
           alt="banner"
           className="banner__img"
         />
@@ -36,7 +36,7 @@ export const Banner = () => {
 
       <div className="banner__item">
         <img
-          src="/img/banner/banner-2.png"
+          src="./img/banner/banner-2.png"
           alt="banner"
           className="banner__img"
         />

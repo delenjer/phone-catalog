@@ -15,7 +15,7 @@ export function SampleNextArrow(props) {
         }}
       onClick={onClick}
     >
-      <img src="/img/icons/arrow_right.svg" alt="Arrow right" />
+      <img src="./img/icons/arrow_right.svg" alt="Arrow right" />
     </button>
   );
 }
@@ -34,7 +34,7 @@ export function SamplePrevArrow(props) {
         }}
       onClick={onClick}
     >
-      <img src="/img/icons/arrow_left.svg" alt="Arrow left" />
+      <img src="./img/icons/arrow_left.svg" alt="Arrow left" />
     </button>
   );
 }
