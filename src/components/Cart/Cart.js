@@ -23,7 +23,13 @@ export const Cart = ({ cart, handleClick }) => {
                         type="button"
                         className="cart__btn"
                         onClick={() => handleClick(item.id)}
-                      />
+                      >
+                        <img
+                          src="./img/icons/close.svg"
+                          alt="Close"
+                          className="cart__btn--img"
+                        />
+                      </button>
 
                       <img
                         src={item.imageUrl}
