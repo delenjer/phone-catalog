@@ -15,3 +15,7 @@ export function getWindowSize() {
     width,
   };
 }
+
+export const messageErrorData = 'Reload the page';
+export const messageErrorWidth = `Sorry, the app only works on screens
+with a resolution greater than 1200px`;

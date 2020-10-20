@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const TechMessage = () => (
+export const TechMessage = ({ messageError }) => (
   <div className="tech-message">
     <p className="tech-message__text">
-      Sorry, the app only works on screens
-      with a resolution greater than 1200px
+      {messageError}
     </p>
   </div>
 );
+
+TechMessage.propTypes = {
+  messageError: PropTypes.string.isRequired,
+};

@@ -9,9 +9,3 @@ export function getPhone() {
 
 // eslint-disable-next-line max-len
 export const GetDetailsURL = phoneId => `https://mate-academy.github.io/phone-catalogue-static/api/phones/${phoneId}.json`;
-
-// export function getPhoneDetails(phoneId) {
-//   return fetch(BASE_URL)
-//     .then(response => response.json())
-//     .then(data => data.find(item => item.id === phoneId));
-// }

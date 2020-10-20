@@ -12,23 +12,37 @@ import { TechMessage } from './components/TechMessage/TechMessage';
 
 import './App.scss';
 import { getPhone } from './api/api';
-import { addLikePhone, getWindowSize } from './helpers/helpers';
+import {
+  addLikePhone,
+  getWindowSize,
+  messageErrorData,
+  messageErrorWidth,
+} from './helpers/helpers';
 
 const App = () => {
   const [phones, setPhones] = useState([]);
   const [likePhoneId, setLikePhoneId] = useState([]);
   const [cart, setCart] = useState([]);
   const [isLoaded, setLoaded] = useState(true);
+  const [isError, setError] = useState(false);
   const [windowWidth, setWindowWidth] = useState(getWindowSize());
   const history = useHistory();
   const { pathname } = useLocation();
 
   useEffect(() => {
     const phoneFromServer = async() => {
-      const data = await getPhone();
+      try {
+        const data = await getPhone();
 
-      setPhones(data);
-      setTimeout(() => setLoaded(false), 1000);
+        setPhones(data);
+        setTimeout(() => setLoaded(false), 1000);
+        setError(false);
+      } catch (e) {
+        setError(true);
+
+        // eslint-disable-next-line no-console
+        console.error(e);
+      }
     };
 
     phoneFromServer().then();
@@ -81,72 +95,80 @@ const App = () => {
   return (
     <>
       {
-        windowWidth.width < 1200 ? (
-          <TechMessage />
+        isError ? (
+          <TechMessage messageError={messageErrorData} />
         ) : (
           <>
             {
-              isLoaded ? (
-                <div className="loader-container">
-                  <div className="loader">Loading...</div>
-                </div>
+              windowWidth.width < 1200 ? (
+                <TechMessage messageError={messageErrorWidth} />
               ) : (
-                <div className="main">
-                  <Header
-                    likePhoneId={likePhoneId}
-                    cart={cart}
-                    pathname={pathname}
-                  />
+                <>
+                  {
+                    isLoaded ? (
+                      <div className="loader-container">
+                        <div className="loader">Loading...</div>
+                      </div>
+                    ) : (
+                      <div className="main">
+                        <Header
+                          likePhoneId={likePhoneId}
+                          cart={cart}
+                          pathname={pathname}
+                        />
 
-                  <Switch>
-                    <Route
-                      path="/"
-                      exact
-                      component={Home}
-                    />
+                        <Switch>
+                          <Route
+                            path="/"
+                            exact
+                            component={Home}
+                          />
 
-                    <Route
-                      path="/phones"
-                    >
-                      <PhonesCatalog
-                        phones={phones}
-                        addLike={addLike}
-                        likePhoneId={likePhoneId}
-                        addCart={addCart}
-                        handlePush={handlePush}
-                      />
-                    </Route>
+                          <Route
+                            path="/phones"
+                          >
+                            <PhonesCatalog
+                              phones={phones}
+                              addLike={addLike}
+                              likePhoneId={likePhoneId}
+                              addCart={addCart}
+                              handlePush={handlePush}
+                            />
+                          </Route>
 
-                    <Route
-                      path="/favorite"
-                    >
-                      <Favorite
-                        likePhoneId={likePhoneId}
-                        phones={phones}
-                        addLike={addLike}
-                        addCart={addCart}
-                        handlePush={handlePush}
-                      />
-                    </Route>
+                          <Route
+                            path="/favorite"
+                          >
+                            <Favorite
+                              likePhoneId={likePhoneId}
+                              phones={phones}
+                              addLike={addLike}
+                              addCart={addCart}
+                              handlePush={handlePush}
+                            />
+                          </Route>
 
-                    <Route
-                      path="/details/:phoneId"
-                    >
-                      <PhoneDetails />
-                    </Route>
+                          <Route
+                            path="/details/:phoneId"
+                          >
+                            <PhoneDetails />
+                          </Route>
 
-                    <Route
-                      path="/cart"
-                    >
-                      <Cart
-                        cart={cart}
-                        handleClick={handleClick}
-                      />
-                    </Route>
-                  </Switch>
+                          <Route
+                            path="/cart"
+                          >
+                            <Cart
+                              cart={cart}
+                              handleClick={handleClick}
+                            />
+                          </Route>
+                        </Switch>
 
-                  <Footer />
-                </div>
+                        <Footer />
+                      </div>
+                    )
+                  }
+                </>
               )
             }
           </>
