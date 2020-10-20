@@ -7,7 +7,7 @@ export const BackPath = () => {
 
   return (
     <div className="path">
-      <img src="/img/icons/back.svg" alt="Back" className="path__icon" />
+      <img src="./img/icons/back.svg" alt="Back" className="path__icon" />
 
       <button
         className="path__back"
