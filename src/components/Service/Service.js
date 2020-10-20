@@ -19,6 +19,8 @@ export const Service = ({ likePhoneId, cart, pathname }) => (
       ) : (
         <p>{null}</p>
       )}
+
+      <img src="./img/icons/favorite.svg" alt="Favorite" />
     </NavLink>
 
     <NavLink
@@ -30,6 +32,8 @@ export const Service = ({ likePhoneId, cart, pathname }) => (
       ) : (
         <p>{null}</p>
       )}
+
+      <img src="./img/icons/cart.svg" alt="Favorite" />
     </NavLink>
   </div>
 );
